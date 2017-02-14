@@ -10,7 +10,7 @@ def battle(numlist):
 
     # assigning numbers to proper lists - even and odd
     for num in numlist:
-        if num == 0:  # removing zeros as they have no effect on a battle
+        if num == 0:
             pass
         elif num % 2 == 0:
             evens.append(num)
@@ -21,11 +21,13 @@ def battle(numlist):
     even_soldiers = counter(evens, "0")
     odd_soldiers = counter(odds, "1")
     if even_soldiers > odd_soldiers:
-        print("evens win")
+        result = "evens win"
     elif even_soldiers < odd_soldiers:
-        print("odds win")
+        result = "odds win"
     else:
-        print("tie")
+        result = "tie"
+    print(result)
+    return result
 
 
 def counter(numbers, soldier):
@@ -34,12 +36,12 @@ def counter(numbers, soldier):
     spies = 0
     soldiers = 0
     for number in numbers:
+        # transforming numbers to strings containing their binary representation
+        number_as_bin = str(bin(number)).replace("0b", "")
         if number < 0:
-            number = str(bin(number)).replace("0b", "")
-            spies += number.count(soldier)
+            spies += number_as_bin.count(soldier)
         else:
-            number = str(bin(number)).replace("0b", "")
-            soldiers += number.count(soldier)
+            soldiers += number_as_bin.count(soldier)
 
     return soldiers - spies
 

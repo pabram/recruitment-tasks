@@ -4,8 +4,8 @@ import sys
 def minimum_effort(filename):
     """Main function calculating minimum effort for each of
     previously prepared matrices"""
-    for each in prepare_file(filename):
-        calculate(each)
+    for matrix in prepare_file(filename):
+        calculate(matrix)
 
 
 def prepare_file(filename):
@@ -19,7 +19,7 @@ def prepare_file(filename):
 
     # dividing file into single matrices
     startpoint = 0  # index of element containing n value
-    while startpoint <= len(matrices) - 1:
+    while startpoint < len(matrices) - 1:
         n = matrices[startpoint][0]  # n for current matrix
         matrix = matrices[startpoint + 1:startpoint + n + 1]  # current matrix
         prepared.append(matrix)
