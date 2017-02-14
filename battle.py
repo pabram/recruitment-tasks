@@ -1,4 +1,9 @@
+import sys
+
+
 def battle(numlist):
+    """Spliting numbers into 2 lists - odds and evens, counting their
+    0's and 1's, and returning winner"""
 
     evens = []
     odds = []
@@ -6,11 +11,11 @@ def battle(numlist):
     # assigning numbers to proper lists - even and odd
     for num in numlist:
         if num == 0:  # removing zeros as they have no effect on a battle
-            numlist.remove(num)
+            pass
         elif num % 2 == 0:
-            evens.append(int(bin(num).replace("0b", "")))
+            evens.append(num)
         else:
-            odds.append(int(bin(num).replace("0b", "")))
+            odds.append(num)
 
     # main part comparing numbers of soldiers of each side
     even_soldiers = counter(evens, "0")
@@ -30,10 +35,13 @@ def counter(numbers, soldier):
     soldiers = 0
     for number in numbers:
         if number < 0:
-            number = str(number)
+            number = str(bin(number)).replace("0b", "")
             spies += number.count(soldier)
         else:
-            number = str(number)
+            number = str(bin(number)).replace("0b", "")
             soldiers += number.count(soldier)
 
     return soldiers - spies
+
+if __name__ == "__main__":
+    battle([int(arg) for arg in sys.argv[1:]])
