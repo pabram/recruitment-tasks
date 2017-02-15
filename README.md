@@ -31,6 +31,6 @@ Unit tests for this script can be found in file minimum_tests.py, which can be r
 
     python minimum_tests.py
     
-Test covers examples given in the excercise as well as one little more complex example. Input for those examples can be found in basic.txt and complex.txt files.
+Test covers examples given in the excercise as well as one little more complex example. Input for those examples can be found in 'basic' and 'complex' files.
 
 All scripts work fine for both python2 and python3.
