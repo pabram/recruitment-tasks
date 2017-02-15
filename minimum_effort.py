@@ -4,8 +4,10 @@ import sys
 def minimum_effort(filename):
     """Main function calculating minimum effort for each of
     previously prepared matrices"""
+    results = []
     for matrix in prepare_file(filename):
-        calculate(matrix)
+        results.append(str(calculate(matrix)))
+    return "\n".join(results)  # making each result appear in new line
 
 
 def prepare_file(filename):
@@ -45,7 +47,7 @@ def calculate(matrix):
         for j in range(1, len(matrix[1])):
             matrix[i][j] += min(matrix[i - 1][j], matrix[i][j - 1])
 
-    print(matrix[-1][-1])
+    return matrix[-1][-1]
 
 if __name__ == "__main__":
-    minimum_effort(sys.argv[1])
+    print(minimum_effort(sys.argv[1]))

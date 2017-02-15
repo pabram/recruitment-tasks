@@ -21,13 +21,11 @@ def battle(numlist):
     even_soldiers = counter(evens, "0")
     odd_soldiers = counter(odds, "1")
     if even_soldiers > odd_soldiers:
-        result = "evens win"
+        return "evens win"
     elif even_soldiers < odd_soldiers:
-        result = "odds win"
+        return "odds win"
     else:
-        result = "tie"
-    print(result)
-    return result
+        return "tie"
 
 
 def counter(numbers, soldier):
@@ -46,4 +44,4 @@ def counter(numbers, soldier):
     return soldiers - spies
 
 if __name__ == "__main__":
-    battle([int(arg) for arg in sys.argv[1:]])
+    print(battle([int(arg) for arg in sys.argv[1:]]))
