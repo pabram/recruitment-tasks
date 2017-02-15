@@ -31,9 +31,9 @@ def prepare_file(filename):
 
 def calculate(matrix):
     """Calculating minimal effort for given matrix. For each field in top row
-     minimum effort is sum of all fields to the left, same with first column.
-     For [1][1] field minimum effort is its value + smaller value from either
-     field above or field to the left."""
+     minimum effort is sum of all fields to the left, for each field in first column
+     it's equal to sum of all fields above. For [1][1] field minimum effort is
+     its value + smaller value from either field above or field to the left."""
     # minimum(and only possible) effort for first row
     for i in range(1, len(matrix[0])):
         matrix[0][i] += matrix[0][i - 1]
